@@ -1,0 +1,137 @@
+
+<div class="container container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <form [formGroup]="newConnectionForm" (submit)="add()">
+                <table class="table table-borderless bg-light">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="name">Name</label>
+                            </td>
+                            <td colspan="3">
+                                <input type="text" class="form-control" formControlName="name">
+                            </td>
+                            <td>
+                                <label for="gender">Gender</label>
+                            </td>
+                            <td>
+                                <select name="gender" id="gender" class="form-control" formControlName="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="district">District</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" formControlName="district">
+                            </td>
+                            <td>
+                                <label for="state">State</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" formControlName="state">
+                            </td>
+                            <td>
+                                <label for="pinCode">PIN</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" formControlName="pinCode">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="govtId">Gove-ID Type</label>
+                            </td>
+                            <td>
+                                <select class="form-control" name="govtId" id="govtId" formControlName="govtId">
+                                    <option value="AADHAR">AADHAR</option>
+                                    <option value="PAN">PAN</option>
+                                    <option value="VOTER_ID">VOTER ID</option>
+                                    <option value="PASSPORT">PASSPORT</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="idNum">ID Number</label>
+                            </td>
+                            <td colspan="3">
+                                <input class="form-control" type="text" style="width: 71;" formControlName="idNumber">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="category">Category</label>
+                            </td>
+                            <td>
+                                <select class="form-control" name="category" id="category" formControlName="category">
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="ownership">Ownership</label>
+                            </td>
+                            <td>
+                                <select class="form-control" name="ownership" id="ownership" formControlName="ownership">
+                                    <option value="JOINT">JOINT</option>
+                                    <option value="INDIVIDUAL">INDIVIDUAL</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="loadAppl">Load Applied</label>
+                            </td>
+                            <td>
+                                <input class="form-control" type="number" placeholder="Less than 200" formControlName="loadAppl">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="reviewerId">Reviewer ID</label>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" formControlName="reviewerId">
+                            </td>
+                            <td>
+                                <label for="reviewerName">Reviewer Name</label>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" formControlName="reviewerName">
+                            </td>
+                            <td>
+                                <label for="status">Status</label>
+                            </td>
+                            <td>
+                                <select class="form-control" name="status" id="status" formControlName="status">
+                                    <option value="Approved">Approved</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Released">Released</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="comments">Comments</label>
+                            </td>
+                            <td colspan="5">
+                                <textarea class="form-control" name="comments" id="comments"  rows="1" formControlName="comments"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: center;">
+                                <button class="btn btn-primary" type="submit" [disabled]="newConnectionForm.invalid">
+                                    Add Application
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

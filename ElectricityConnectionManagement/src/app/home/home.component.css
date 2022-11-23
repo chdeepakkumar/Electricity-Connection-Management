@@ -1,0 +1,10 @@
+.centerScreen {
+    width: 705px;
+    height: 250px;
+    margin-top: 250px;
+    margin-left: 400px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}

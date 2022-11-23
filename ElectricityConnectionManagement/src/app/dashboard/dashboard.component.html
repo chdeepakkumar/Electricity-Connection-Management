@@ -1,0 +1,64 @@
+<div class="container container-fluid">
+    <div class=" row mt-4">
+        <div>
+            <button class="btn btn-success btn-block" routerLink="/addconn">Add New Connection</button>
+            <button class="btn btn-warning btn-block" style="float: right;" (click)="saveDataInLocal()">Show Statistics</button>
+        </div>
+    </div>
+    
+    <div class=" row bg-light mt-3">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+            <thead>
+                <tr class="table-light">
+                    <th>
+                        <select class="form-control" name="searchDrpDwn" id="searchDrpDwn" [(ngModel)]="searchDrpDwn">
+                            <option value="ID">ID</option>
+                            <option value="Name">Name</option>
+                            <option value="PIN">PIN</option>
+                        </select>
+                    </th>
+                    <th colspan="3">
+                        <input class="form-control" (keyup)="getSuggestions()" type="text" placeholder="Search {{searchDrpDwn}}" 
+                            name="search-id" list="autofil" [(ngModel)]="search">
+                        <datalist id="autofil" >
+                            <option *ngFor="let suggestion of suggestions" [value]="suggestion">{{suggestion}}</option>
+                        </datalist>
+                    </th>
+                    <th><button class="btn btn-primary" style="width: 100%;" (click)="showRecord()">Search</button></th>
+                    <th><input type="date" name="start-date" style="height: 37.5px; border-color: white; width: 100%;" class="datePicker" [(ngModel)]="filterStart"></th>
+                    <th><input type="date" name="end-date" style="height: 37.5px; border-color: white; width: 100%;" class="datePicker" [(ngModel)]="filterEnd"></th>
+                    <th><button class="btn btn-primary" style="width: 100%;" (click)="filterData()">Filter</button></th>
+                    <th><button class="btn btn-warning" style="width: 100%;" (click)="rerender();ngOnInit();ngAfterViewInit()">Reset</button></th>
+                </tr>
+                <tr class="table-light">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>PIN</th>
+                    <th>Category</th>
+                    <th>Load Applied</th>
+                    <th>Date of Application</th>
+                    <th>Date of Approval</th>
+                    <th>Date of Modification</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let connReq of connReqsOnScreen" class="clickable" (click)="getConnDetails(connReq)"
+                    [class.table-success]="connReq.status=='Approved'"
+                    [class.table-primary]="connReq.status=='Released'"
+                    [class.table-danger]="connReq.status=='Rejected'"
+                    [class.table-info]="connReq.status=='Pending'">
+                    <td>{{ connReq.id }}</td>
+                    <td>{{ connReq.name }}</td>
+                    <td>{{ connReq.pinCode }}</td>
+                    <td>{{ connReq.category }}</td>
+                    <td>{{ connReq.loadAppl }}</td>
+                    <td>{{ connReq.dateOfApplication }}</td>
+                    <td>{{ connReq.dateOfApproval }}</td>
+                    <td>{{ connReq.modifiedDate }}</td>
+                    <td>{{ connReq.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

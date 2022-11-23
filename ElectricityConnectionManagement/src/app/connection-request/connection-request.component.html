@@ -1,0 +1,135 @@
+
+<div class="container container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <form [formGroup]="connectionForm" (submit)="update()">
+                <table class="table table-borderless bg-light">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="name">Name</label>
+                            </td>
+                            <td colspan="3">
+                                <input type="text"  formControlName="name" class="form-control">
+                            </td>
+                            <td>
+                                <label for="gender">Gender</label>
+                            </td>
+                            <td>
+                                <select name="gender" id="gender" formControlName="gender" class="form-control">
+                                    <option value="Male" [selected]="connReq.gender=='Male'">Male</option>
+                                    <option value="Female" [selected]="connReq.gender=='Female'">Female</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="district">District</label>
+                            </td>
+                            <td>
+                                <input type="text" formControlName="district" class="form-control">
+                            </td>
+                            <td>
+                                <label for="state">State</label>
+                            </td>
+                            <td>
+                                <input type="text" formControlName="state" class="form-control">
+                            </td>
+                            <td>
+                                <label for="pinCode">PIN</label>
+                            </td>
+                            <td>
+                                <input type="text" formControlName="pinCode" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="govtId">Gove-ID Type</label>
+                            </td>
+                            <td>
+                                <input type="text" readonly formControlName="govtId" class="form-control">
+                            </td>
+                            <td>
+                                <label for="idNum">ID Number</label>
+                            </td>
+                            <td>
+                                <input type="text" style="width: 71;" readonly formControlName="idNumber" class="form-control">
+                            </td>
+                            <td>
+                                <label for="dateOfApplication">Date of Application</label>
+                            </td>
+                            <td>
+                                <input type="text" readonly formControlName="dateOfApplication" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="category">Category</label>
+                            </td>
+                            <td>
+                                <select name="category" id="category" formControlName="category" class="form-control">
+                                    <option value="Residential" [selected]="connReq.category=='Residential'">Residential</option>
+                                    <option value="Commercial" [selected]="connReq.category=='Commercial'">Commercial</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="ownership">Ownership</label>
+                            </td>
+                            <td>
+                                <select name="ownership" id="ownership" formControlName="ownership" class="form-control">
+                                    <option value="JOINT" [selected]="connReq.ownership=='JOINT'">JOINT</option>
+                                    <option value="INDIVIDUAL" [selected]="connReq.ownership=='INDIVIDUAL'">INDIVIDUAL</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label for="loadAppl">Load Applied</label>
+                            </td>
+                            <td>
+                                <input type="number" formControlName="loadAppl" class="form-control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="reviewerId">Reviewer ID</label>
+                            </td>
+                            <td>
+                                <input type="text" readonly formControlName="reviewerId" class="form-control">
+                            </td>
+                            <td>
+                                <label for="reviewerName">Reviewer Name</label>
+                            </td>
+                            <td>
+                                <input type="text" readonly formControlName="reviewerName" class="form-control">
+                            </td>
+                            <td>
+                                <label for="status">Status</label>
+                            </td>
+                            <td>
+                                <select name="status" id="status" formControlName="status" class="form-control">
+                                    <option value="Approved" [selected]="connReq.status=='Approved'">Approved</option>
+                                    <option value="Pending" [selected]="connReq.status=='Pending'">Pending</option>
+                                    <option value="Rejected" [selected]="connReq.status=='Rejected'">Rejected</option>
+                                    <option value="Released" [selected]="connReq.status=='Released'">Released</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="comments">Comments</label>
+                            </td>
+                            <td colspan="5">
+                                <textarea name="comments" id="comments" class="form-control" rows="1" formControlName="comments"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: center;"><button class="btn btn-primary"  [disabled]="connectionForm.invalid" type="submit">Update</button></td>
+                            <td colspan="3" style="text-align: center;"><button class="btn btn-danger" (click)="delete()">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
